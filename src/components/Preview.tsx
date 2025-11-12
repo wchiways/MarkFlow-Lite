@@ -32,7 +32,7 @@ const Preview: React.FC<PreviewProps> = ({ markdown, isDarkMode, className = '' 
           // 动态导入mermaid
           const mermaidModule = await import('mermaid')
           const mermaid = mermaidModule.default
-          
+
           // 配置mermaid，设置图表尺寸
           mermaid.initialize({
             startOnLoad: false,

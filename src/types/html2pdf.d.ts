@@ -1,33 +1,41 @@
 declare module 'html2pdf.js' {
   interface Html2PdfOptions {
-    margin?: number | number[];
+    margin?: number | number[] | { top?: number; bottom?: number; left?: number; right?: number };
     filename?: string;
-    image?: { type: string; quality: number };
+    image?: { type?: string; quality?: number };
     html2canvas?: {
       scale?: number;
       useCORS?: boolean;
       logging?: boolean;
+      allowTaint?: boolean;
+      backgroundColor?: string;
+      width?: number;
+      height?: number;
     };
     jsPDF?: {
       unit?: string;
-      format?: string | [number, number];
-      orientation?: string;
+      format?: string | string[];
+      orientation?: 'portrait' | 'landscape';
     };
-  }
-
-  interface Html2PdfInstance {
-    set(options: Html2PdfOptions): Html2PdfInstance;
-    from(element: HTMLElement | string): Html2PdfInstance;
-    save(): void;
+    pagebreak?: { mode?: string[]; before?: string[]; after?: string[]; avoid?: string[] };
   }
 
   interface Html2Pdf {
-    (options?: Html2PdfOptions): Html2PdfInstance;
-    set(options: Html2PdfOptions): Html2PdfInstance;
-    from(element: HTMLElement | string): Html2PdfInstance;
-    save(): void;
+    from(element: string | HTMLElement): {
+      set(options: Html2Pdf): Html2Pdf;
+      toPdf(): Promise<Blob>;
+      toContainer(): Promise<HTMLElement>;
+      save(filename?: string): void;
+      getJson(): Promise<any>;
+      img(): Promise<any>;
+      outputImg(type?: string): Promise<string>;
+    };
+    to(container: string | HTMLElement): Html2Pdf;
+    toPdf(): Promise<Blob>;
+    save(filename?: string): void;
   }
 
-  const html2pdf: Html2Pdf;
+  function html2pdf(): Html2Pdf;
+
   export default html2pdf;
 }
