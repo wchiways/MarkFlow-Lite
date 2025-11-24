@@ -231,6 +231,6 @@ npm run build
 
 项目地址: [https://github.com/blankzsh/markflow-lite](https://github.com/blankzsh/markflow-lite)
 
-**邮箱反馈**: [shell7@petalmail.com](mailto:shell7@petalmail.com)
+**邮箱反馈**: [wchiway@163.com](mailto:wchiway@163.com)
 
 如有任何问题或建议，请提交 Issue 或通过邮箱联系项目维护者。我们重视每一个用户的反馈！
