@@ -143,11 +143,9 @@ MarkFlow Lite 支持多种云存储后端：
 支持多种 Mermaid 图表类型：
 
 ```markdown
-```mermaid
 graph TD
   A[开始] --> B[处理]
   B --> C[结束]
-```
 ```
 
 支持的图表类型：
